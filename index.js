@@ -3,9 +3,7 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 const bodyParser =  require('body-parser')
-
 const config = require('./config/key');
-
 const { User } = require('./models/User');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,13 +19,20 @@ app.get('/', (req, res) => {
 })
 
 app.post('/register', (req, res) => {
-  console.log(`req.body : ${req.body}`)
   const user = new User(req.body)
-  console.log(`new User : ${user}`)
   user.save((err, data) => {
     if(err) return res.json({ success: false, err})
     return res.status(200).json({ success: true})
   })
+})
+
+app.post('/login', (req, res) => {
+  // 요청된 이메일이 DB에 있는지 찾는다.
+
+  // DB에 있다면 비밀번호가 맞는지 확인한다.
+
+  // 비밀번호가 맞다면 토큰을 생성하기.
+
 })
 
 app.listen(port, () => {
