@@ -1,12 +1,14 @@
 const express = require('express')
-const app = express()
-const port = 5000
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
-const config = require('./config/key');
-const { User } = require('./models/User');
-const { auth } = require('./middleware/auth');
+const port = 5000
+const config = require('./server/config/key');
+const { User } = require('./server/models/User');
+const { auth } = require('./server/middleware/auth');
+
+const app = express()
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());

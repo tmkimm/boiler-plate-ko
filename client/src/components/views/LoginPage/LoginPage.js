@@ -4,7 +4,6 @@ function LoginPage() {
 
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
-
     const onEmailHahdler = (e) => {
         setEmail(e.target.value)
     }
