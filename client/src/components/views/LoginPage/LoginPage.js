@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { loginUser } from '../../../_actions/user_action'
 
 function LoginPage() {
-
+    const dispatch = useDispatch();
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
     const onEmailHahdler = (e) => {
@@ -12,6 +14,11 @@ function LoginPage() {
     }
     const onSubmitHandler = (e) => {
         e.preventDefault();
+        let body = {
+            email: Email,
+            password: Password
+        };
+        dispatch(loginUser(body));
     }
     return (
         <div style={{

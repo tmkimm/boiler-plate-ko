@@ -6,9 +6,7 @@ const port = 5000
 const config = require('./server/config/key');
 const { User } = require('./server/models/User');
 const { auth } = require('./server/middleware/auth');
-
 const app = express()
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
