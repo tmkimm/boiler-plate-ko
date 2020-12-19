@@ -80,6 +80,7 @@ app.get('/api/user/auth', auth, (req, res) => {
   })
 })
 
+// 권한을 확인하고 로그아웃 처리한다.
 app.get('/api/user/logout', auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
     if (err) return res.json({ success: false, err })
